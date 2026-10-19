@@ -1,0 +1,42 @@
+{
+	"geode": "5.0.0",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "yourname.early-click-buffer",
+	"name": "Early Click Buffer",
+	"version": "v1.2.0",
+	"developer": "yourname",
+	"description": "Click a few milliseconds early and the input still lands on time. Works in every game mode, on orbs, at any TPS, and alongside Click Between Frames.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Enabled",
+			"default": true
+		},
+		"window-ms": {
+			"type": "int",
+			"name": "Buffer window (ms)",
+			"description": "How early a click can be and still count. 17 ms is about 1 frame at 60 FPS, 33 ms about 2 frames. It is time-based, so it behaves the same at 60, 240 or any other TPS.",
+			"default": 17,
+			"min": 1,
+			"max": 50,
+			"control": { "slider": true }
+		},
+		"ground": {
+			"type": "bool",
+			"name": "Buffer ground / ceiling clicks",
+			"description": "Cube, ball, robot and spider landings.",
+			"default": true
+		},
+		"orbs": {
+			"type": "bool",
+			"name": "Buffer orb clicks",
+			"description": "Works in every game mode.",
+			"default": true
+		}
+	}
+}
