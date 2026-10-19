@@ -7,35 +7,38 @@
 		"ios": "2.2081"
 	},
 	"id": "yourname.early-click-buffer",
-	"name": "Early Click Buffer",
-	"version": "v1.2.1",
+	"name": "Auto Click Timing",
+	"version": "v2.0.0",
 	"developer": "yourname",
-	"description": "Click a few milliseconds early and the input still lands on time. Works in every game mode, on orbs, at any TPS, and alongside Click Between Frames.",
+	"description": "Learns by trial and error which click timings get you past the spots where you die, then delays your early clicks so they land on the learned time.",
 	"settings": {
 		"enabled": {
 			"type": "bool",
 			"name": "Enabled",
 			"default": true
 		},
-		"window-ms": {
+		"max-shift-ms": {
 			"type": "int",
-			"name": "Buffer window (ms)",
-			"description": "How early a click can be and still count. 17 ms is about 1 frame at 60 FPS, 33 ms about 2 frames. It is time-based, so it behaves the same at 60, 240 or any other TPS.",
-			"default": 17,
+			"name": "Max delay (ms)",
+			"description": "The most the mod will ever delay a click. This is also the size of the buffer window around each learned click time.",
+			"default": 33,
 			"min": 1,
-			"max": 50,
+			"max": 100,
 			"control": { "slider": true }
 		},
-		"ground": {
-			"type": "bool",
-			"name": "Buffer ground / ceiling clicks",
-			"description": "Cube, ball, robot and spider landings.",
-			"default": true
+		"search-step-ms": {
+			"type": "int",
+			"name": "Search step (ms)",
+			"description": "How much later to try the click on each new attempt. Smaller is more precise but takes more attempts. 4 ms is one step at 240 TPS.",
+			"default": 4,
+			"min": 1,
+			"max": 20,
+			"control": { "slider": true }
 		},
-		"orbs": {
+		"debug": {
 			"type": "bool",
-			"name": "Buffer orb clicks",
-			"description": "Works in every game mode.",
+			"name": "Show status messages",
+			"description": "Shows on-screen messages when the mod tries a delay or learns a fix, and logs to the Geode log.",
 			"default": true
 		}
 	}
